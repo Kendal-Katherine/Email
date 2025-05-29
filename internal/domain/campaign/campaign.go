@@ -3,7 +3,7 @@ package campaign
 import "time"
 
 type Contacts struct {
-	Emails string `json:"emails"`
+	Email string `json:"emails"`
 }
 type Campaign struct {
 	ID        string     `json:"id"`
@@ -11,4 +11,20 @@ type Campaign struct {
 	CreatedOn time.Time  `json:"created_on"`
 	Content   string     `json:"content"`
 	Contacts  []Contacts `json:"contacts"`
+}
+
+func NewCampaign(name string, content string, emails []string) *Campaign {
+
+	contacts := make([]Contacts, len(emails))
+	for index, email := range emails {
+		contacts[index].Email = email
+	}
+
+	return &Campaign{
+		ID:        "1",
+		Name:      name,
+		CreatedOn: time.Now(),
+		Content:   content,
+		Contacts:  contacts,
+	}
 }

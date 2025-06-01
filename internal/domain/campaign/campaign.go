@@ -17,7 +17,7 @@ type Campaign struct {
 	Contacts  []Contacts `json:"contacts"`
 }
 
-func NewCampaign(name string, content string, emails []string) *Campaign {
+func NewCampaign(name string, content string, emails []string) (*Campaign, error) {
 
 	contacts := make([]Contacts, len(emails))
 	for index, email := range emails {
@@ -30,5 +30,5 @@ func NewCampaign(name string, content string, emails []string) *Campaign {
 		CreatedOn: time.Now(),
 		Content:   content,
 		Contacts:  contacts,
-	}
+	}, nil
 }

@@ -33,7 +33,7 @@ func TestNewCampaign_IDIsNotNil(t *testing.T) {
 
 }
 
-func TestNewCampaign_CreatedOnIsNotNil(t *testing.T) {
+func TestNewCampaign_CreatedOnMustBeNow(t *testing.T) {
 	assert := assert.New(t)
 	name := "Campaign x"
 	content := "Body"

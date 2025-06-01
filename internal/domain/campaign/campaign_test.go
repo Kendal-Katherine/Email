@@ -24,7 +24,7 @@ func Test_NewCampaign_CreateCampaign(t *testing.T) {
 
 }
 
-func TestNewCampaign_IDIsNotNil(t *testing.T) {
+func Test_NewCampaign_IDIsNotNil(t *testing.T) {
 	assert := assert.New(t)
 
 	campaign, _ := NewCampaign(name, content, contacts)
@@ -33,7 +33,7 @@ func TestNewCampaign_IDIsNotNil(t *testing.T) {
 
 }
 
-func TestNewCampaign_CreatedOnMustBeNow(t *testing.T) {
+func Test_NewCampaign_CreatedOnMustBeNow(t *testing.T) {
 	assert := assert.New(t)
 	now := time.Now().Add(-time.Minute)
 

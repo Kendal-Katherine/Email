@@ -7,11 +7,14 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+var (
+	name     = "Campaign x"
+	content  = "Body"
+	contacts = []string{"email1@e.com", "email2@e.com"}
+)
+
 func Test_NewCampaign_CreateCampaign(t *testing.T) {
 	assert := assert.New(t)
-	name := "Campaign x"
-	content := "Body"
-	contacts := []string{"email1@e.com", "email2@e.com"}
 
 	campaign := NewCampaign(name, content, contacts)
 
@@ -23,9 +26,6 @@ func Test_NewCampaign_CreateCampaign(t *testing.T) {
 
 func TestNewCampaign_IDIsNotNil(t *testing.T) {
 	assert := assert.New(t)
-	name := "Campaign x"
-	content := "Body"
-	contacts := []string{"email1@e.com", "email2@e.com"}
 
 	campaign := NewCampaign(name, content, contacts)
 
@@ -35,9 +35,6 @@ func TestNewCampaign_IDIsNotNil(t *testing.T) {
 
 func TestNewCampaign_CreatedOnMustBeNow(t *testing.T) {
 	assert := assert.New(t)
-	name := "Campaign x"
-	content := "Body"
-	contacts := []string{"email1@e.com", "email2@e.com"}
 	now := time.Now().Add(-time.Minute)
 
 	campaign := NewCampaign(name, content, contacts)
